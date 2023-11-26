@@ -1,19 +1,3 @@
-async function getJSON() {
-    const response = await fetch('./json/data.json');
-    
-    if (response.ok) {
-        const json = await response.json();
-        getJSON(json);
-        
-        
-    } else {
-        console.log('Error' + response.status)
-    }
-    
-    
-}
-
-
 function mainSection() {
     // my mainSection
     const mainSection = document.createElement('section');
@@ -81,6 +65,3 @@ function myBody() {
     
 }
 myBody();
-
-
-getJSON();
