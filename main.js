@@ -1,20 +1,68 @@
-async function getJSON() {
-    const response = await fetch('./json/data.json');
+const header = document.querySelector('.header');
+
+async function david() {
     
+    const response = await fetch('./json/data.json');
+            
     if (response.ok) {
-        const json = await response.json();
-        getJSON(json);
-        //console.log(`this should work ${json}`)
+
+        const jsonsInnhehåll = await response.json();
         
-        
+        showProfiles(jsonsInnhehåll);        
+           
     } else {
         console.log('Error' + response.status)
     }
     
+}
+
+function showProfiles(jsonsInnhehåll) {
+    const headerDiv = document.createElement('div');
+    headerDiv.classList.add('headerDiv')
+    header.appendChild(headerDiv);
+
+    jsonsInnhehåll.profiles.forEach(profile => {
+        const h1 = document.createElement('h1');
+        h1.textContent = profile.name;
+        headerDiv.appendChild(h1)
+    })
     
 }
 
+david();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // create a header
 function header() {
     const header = document.createElement('header')
@@ -25,7 +73,7 @@ function header() {
     // creating a h1 inside my header with content
     const h1 = document.createElement('h1');
     header.appendChild(h1);
-    h1.textContent = 'Welcome to my website';
+    //h1.textContent = header.profiles.name[0];
 
     // creating two div inside my header with a class name
     const firstDivHedaer = document.createElement('div');
@@ -93,7 +141,8 @@ function footer() {
 // one divChildElement to our footer
 
 
-getJSON();
+
 header();
 main();
 footer();
+*/
