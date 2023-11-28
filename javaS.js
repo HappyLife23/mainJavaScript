@@ -40,7 +40,7 @@ function showProfiles(jsonsInnhehåll) {
 
         const img = document.createElement('img');
         img.src = profile.profilePicture;
-        header.appendChild(img)
+        header.appendChild(img);
 
         
     });
